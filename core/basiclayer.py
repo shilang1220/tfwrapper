@@ -3,7 +3,7 @@
 # @Time    : 18-5-11 下午12:34
 # @Author  : Guoliang PU
 # @File    : basiclayer.py
-# @Software: learnPython
+# @Software: tfwrapper
 
 class Layer(object):
     pass

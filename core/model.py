@@ -3,7 +3,7 @@
 # @Time    : 18-5-11 下午12:21
 # @Author  : Guoliang PU
 # @File    : model.py
-# @Software: learnPython
+# @Software: tfwrapper
 
 from core import network
 
