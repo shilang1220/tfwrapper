@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 18-5-15 下午4:54
 # @Author  : Guoliang PU
-# @File    : regressor.py
+# @File    : regressor_with_kerasSquential.py
 # @Software: tfwrapper
 
 import numpy as np
