@@ -24,7 +24,7 @@ x_train,y_train = x[:160],y[:160]
 x_test,y_test = x[160:],y[160:]
 
 
-ml =
+
 model = Sequential()
 
 model.add(Dense(output_dim = 1,input_dim = 1,activation='tanh'))
