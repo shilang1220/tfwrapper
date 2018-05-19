@@ -14,8 +14,14 @@ from sklearn import datasets
 boston = datasets.load_boston()
 x_vals = boston.data
 y_vals = boston.target
+y_vals = y_vals.reshape(y_vals.shape[0],1)
 
-feature_nums = x_vals.shape[1]
+
+feature_num = x_vals.shape[1]
+sample_num = x_vals.shape[0]
+
+print('Sample number is: %d' % sample_num)
+print('Feature number is: %d' % feature_num)
 
 LEARNING_RATE = 0.001
 BATCH_SIZE = 32
