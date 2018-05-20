@@ -58,6 +58,9 @@ def conv_model(input_data):
     return(full_connected2)
 
 
+
+# main function
+
 sess = tf.Session()
 
 #1. 定义数据
@@ -92,23 +95,31 @@ train_step = optim.minimize(loss)
 
 #4. 初始化权重
 init = tf.global_variables_initializer()
-sess.run(init)
+saver = tf.train.Saver()
 
-#5. 运行计算图，run(train_step)
-for i in range(EPOCHS): #轮数
-    #随机生成小批量
-    rand_index = np.random.choice(len(train_x), size=BATCH_SIZE)
-    rand_x = train_x[rand_index]
-    rand_x = np.expand_dims(rand_x, 3)
-    rand_y = train_y[rand_index]
+# 5. 运行计算图，run(train_step)
+with tf.Session() as sess:
+    sess.run(init)
 
-    train_dict = {x_input: rand_x, y_target: rand_y}
+    for i in range(EPOCHS): #轮数
+        #随机生成小批量
+        rand_index = np.random.choice(len(train_x), size=BATCH_SIZE)
+        rand_x = train_x[rand_index]
+        rand_x = np.expand_dims(rand_x, 3)
+        rand_y = train_y[rand_index]
 
-    #更新权重
-    sess.run(train_step, feed_dict=train_dict)
+        train_dict = {x_input: rand_x, y_target: rand_y}
+
+        #更新权重
+        sess.run(train_step, feed_dict=train_dict)
+
+#7. 保存参数
+    saver.save(sess,'save/model.ckpt')
 
 
 #6. 评估训练结果
 eval_input_shape = [BATCH_SIZE,IMAGE_WIDTH,IMAGE_HEIGHT,IMAGE_CHANNELS]
 eval_x_input = tf.placeholder(tf.float32,shape = input_shape)
 eval_y_target = tf.placeholder(tf.float32,shape = (BATCH_SIZE))
+
+
