@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
-def conv_model(input_data)
+def conv_model(input_data):
     # 第一层
     CONV1_FEATURES = 25
     MAX_POOL_SIZE1 = 2
