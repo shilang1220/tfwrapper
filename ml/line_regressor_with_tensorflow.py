@@ -42,6 +42,8 @@ loss = tf.reduce_mean(tf.square(y - y_))
 #3.初始化权重参数
 
 sess = tf.Session()
+writer = tf.summary.FileWriter("logs/", sess.graph)
+
 init_op = tf.global_variables_initializer()
 sess.run(init_op)
 print('权重初值为:')
