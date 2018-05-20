@@ -29,10 +29,10 @@ EPOCHES = 1000
 
 #2.定义计算图
 #从placeholder开始，到损失函数loss结束
-x = tf.placeholder(tf.float32,shape=[None,feature_nums])
+x = tf.placeholder(tf.float32,shape=[None,feature_num])
 y = tf.placeholder(tf.float32,shape= [None,1])
 
-w = tf.Variable(tf.random_normal(shape = [feature_nums,1]))
+w = tf.Variable(tf.random_normal(shape = [feature_num,1]))
 b = tf.Variable(tf.random_normal(shape = [1,1]))
 
 y_=tf.add(tf.matmul(x,w),b)
@@ -58,5 +58,8 @@ for i in range(EPOCHES):
     print('第%d轮权重初值为:' % i)
     print('W is:', sess.run(w))
     print('b is:', sess.run(b))
+
+#6. 生成日志
+tf.summary.FileWriter('logs/',sess.graph)
 
 
